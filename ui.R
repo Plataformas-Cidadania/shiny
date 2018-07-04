@@ -41,7 +41,7 @@ shinyUI(
                   extendShinyjs(text = jscode),
                   fluidRow(
                   tabBox(id = "filtro",
-                         width = 9,
+                         width = 12,
                          tabPanel(tagList(shiny::icon("filter"), "Filtros"), value = "filtros",
                                   div(id = "form",
                                       tagList(
