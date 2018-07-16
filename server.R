@@ -25,6 +25,7 @@ if (!require("shinyalert")) install.packages("shinyalert")
 if (!require("highcharter")) install.packages("highcharter")
 if (!require("V8")) install.packages("V8")
 if (!require("pool")) install.packages("pool")
+if (!require("dbplyr")) install.packages("dbplyr")
 
 library(shinythemes, warn.conflicts = F)
 library(lubridate, warn.conflicts = F)
@@ -53,8 +54,8 @@ library(V8)
 load("label.RData")
 
 dc_ods <- data.frame(ods = c(paste("Objetivo", 1:17)), cd_ods = 1:17)
-dc_conferencia$tx_nome_conferencia <- iconv(dc_conferencia$tx_nome_conferencia, from = "UTF-8", to = "Windows-1252")
-dc_conselho$tx_nome_conselho <- iconv(dc_conselho$tx_nome_conselho, from = "UTF-8", to = "Windows-1252")
+dc_conferencia$tx_nome_conferencia <- iconv(dc_conferencia$tx_nome_conferencia, from = "UTF-8", to = "UTF-8")
+dc_conselho$tx_nome_conselho <- iconv(dc_conselho$tx_nome_conselho, from = "UTF-8", to = "UTF-8")
 
 ## Conecta ao banco ----------------------------------------------------
 
