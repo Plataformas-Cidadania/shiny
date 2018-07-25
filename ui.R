@@ -26,8 +26,10 @@ shinyjs.enableTab = function(name) {
 "
 
 load("label.RData")
-dc_conferencia$tx_nome_conferencia <- iconv(dc_conferencia$tx_nome_conferencia, from = "UTF-8", to = "Windows-1252")
-dc_conselho$tx_nome_conselho <- iconv(dc_conselho$tx_nome_conselho, from = "UTF-8", to = "Windows-1252")
+dc_conferencia$tx_nome_conferencia <- iconv(dc_conferencia$tx_nome_conferencia, from = "latin1", to = "Windows-1252")
+dc_conselho$tx_nome_conselho <- iconv(dc_conselho$tx_nome_conselho, from = "latin1", to = "Windows-1252")
+juridico_c <- iconv(juridico_c, from = 'latin1', to='UTF-8')
+dc_sub_area_atuacao$tx_nome_subarea_atuacao <- iconv(dc_sub_area_atuacao$tx_nome_subarea_atuacao, from = 'latin1', to='UTF-8')
 
 shinyUI(
       dashboardPage(
@@ -310,5 +312,3 @@ shinyUI(
       )
       )
 )
-
-
