@@ -24,8 +24,17 @@ if (!require("shinycssloaders")) install.packages("shinycssloaders")
 if (!require("shinyalert")) install.packages("shinyalert")
 if (!require("highcharter")) install.packages("highcharter")
 if (!require("V8")) install.packages("V8")
+##sudo apt-get install libv8-dev
 if (!require("pool")) install.packages("pool")
 if (!require("dbplyr")) install.packages("dbplyr")
+if (!require("rlang")) install.packages("rlang")
+if (!require("shinydashboard")) install.packages("shinydashboard")
+if (!require("DBI")) install.packages("DBI")
+
+library(devtools)
+install_github("timelyportfolio/d3treeR")
+install_github('ramnathv/rCharts')
+install_github('jbkunst/highcharter')
 
 library(shinythemes, warn.conflicts = F)
 library(lubridate, warn.conflicts = F)
@@ -54,8 +63,10 @@ library(V8)
 load("label.RData")
 
 dc_ods <- data.frame(ods = c(paste("Objetivo", 1:17)), cd_ods = 1:17)
-dc_conferencia$tx_nome_conferencia <- iconv(dc_conferencia$tx_nome_conferencia, from = "UTF-8", to = "UTF-8")
-dc_conselho$tx_nome_conselho <- iconv(dc_conselho$tx_nome_conselho, from = "UTF-8", to = "UTF-8")
+dc_conferencia$tx_nome_conferencia <- iconv(dc_conferencia$tx_nome_conferencia, from = "latin1", to = "Windows-1252")
+dc_conselho$tx_nome_conselho <- iconv(dc_conselho$tx_nome_conselho, from = "latin1", to = "Windows-1252")
+juridico_c <- iconv(juridico_c, from = 'latin1', to='UTF-8')
+dc_sub_area_atuacao$tx_nome_subarea_atuacao <- iconv(dc_sub_area_atuacao$tx_nome_subarea_atuacao, from = 'latin1', to='UTF-8')
 
 ## Conecta ao banco ----------------------------------------------------
 
