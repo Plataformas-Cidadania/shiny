@@ -79,11 +79,11 @@ z-index: 800;
 }
 
 .myRow6{
-      width: auto;
+      width: auto !important;
 }
 
 .myRow7{	
-    width: auto;
+    width: auto !important;
 }
 
 #ver_dados{
